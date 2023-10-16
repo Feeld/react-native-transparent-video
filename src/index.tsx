@@ -1,12 +1,11 @@
 import React from 'react';
-import { requireNativeComponent, ViewStyle } from 'react-native';
+import { requireNativeComponent, StyleProp, ViewStyle } from 'react-native';
 // @ts-ignore
 import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource';
 
 type TransparentVideoProps = {
-  style: ViewStyle;
+  style?: StyleProp<ViewStyle>;
   source?: any;
-  loop?: boolean;
 };
 
 const ComponentName = 'TransparentVideoView';
@@ -28,7 +27,6 @@ class TransparentVideo extends React.PureComponent<TransparentVideoProps> {
         uri,
         type: source.type || '',
       },
-      loop: nativeProps.loop ?? true,
     });
 
     return <TransparentVideoView {...nativeProps} />;
