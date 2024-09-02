@@ -40,6 +40,9 @@ public class AVPlayerView: UIView {
     public func loadPlayerItem(_ playerItem: AVPlayerItem, onReady: ((Result<AVPlayer, Error>) -> Void)? = nil) {
         let player = AVPlayer(playerItem: playerItem)
 
+        // Prevent video player from disabling display sleep when idle
+        player.preventsDisplaySleepDuringVideoPlayback = false;
+        
         self.player = player
         self.playerItem = playerItem
 
